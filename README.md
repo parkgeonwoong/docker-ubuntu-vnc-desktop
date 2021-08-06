@@ -1,10 +1,19 @@
-# docker-ubuntu-vnc-desktop
+# 📌Docker-Ubuntu-Vnc-desktop-UnityHub-Kubernetes
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/dorowu/ubuntu-desktop-lxde-vnc.svg)](https://hub.docker.com/r/dorowu/ubuntu-desktop-lxde-vnc/)
 [![Docker Stars](https://img.shields.io/docker/stars/dorowu/ubuntu-desktop-lxde-vnc.svg)](https://hub.docker.com/r/dorowu/ubuntu-desktop-lxde-vnc/)
 
-docker-ubuntu-vnc-desktop is a Docker image to provide web VNC interface to access Ubuntu LXDE/LxQT desktop environment.
+<p> 
+  <strong>• Environment</strong>&nbsp&nbsp&nbsp
+<img src="http://img.shields.io/badge/Docker-2496ED?style&logo=Docker&logoColor=white"/></a> &nbsp
+<img src="http://img.shields.io/badge/Ubuntu-E95420?style&logo=Ubuntu&logoColor=white"/></a> &nbsp
+<img src="http://img.shields.io/badge/UnityHub-000000?style&logo=Unity&logoColor=white"/></a> &nbsp
+<img src="http://img.shields.io/badge/Kubernetes-326CE5?style&logo=Kubernetes&logoColor=white"/></a> &nbsp
+</p>
 
+- docker-ubuntu-vnc-desktop is a Docker image to provide web VNC interface to access Ubuntu LXDE/LxQT desktop environment.
+- **Build Docker image, show GUI through VNC, install UnityHub and packageing Kubernetes Pod**
+<br />
 <!-- @import "[TOC]" {cmd="toc" depthFrom=2 depthTo=2 orderedList=false} -->
 
 <!-- code_chunk_output -->
@@ -23,7 +32,21 @@ docker-ubuntu-vnc-desktop is a Docker image to provide web VNC interface to acce
 
 <!-- /code_chunk_output -->
 
-## Quick Start
+## ✅ 목적
+- [ ] Company Project 
+- [ ] Docker image 활용
+- [ ] Docker Ubuntu GUI 환경
+- [ ] VNC의 이해
+- [ ] UnityHub
+- [ ] ScriptShell 활용
+- [ ] Kubernetes 
+- [ ] Container Management
+- [ ] Kubernetes Pod
+
+### 🔸Gallery
+<img src ="https://user-images.githubusercontent.com/65653053/128440040-be99fb68-4b05-47d6-97fa-e4c5c8fdc4d4.png" width=700 />
+
+## ✅Quick Start
 
 Run the docker container and access with port `6080`
 
@@ -35,7 +58,7 @@ Browse http://127.0.0.1:6080/
 
 <img src="https://raw.github.com/fcwu/docker-ubuntu-vnc-desktop/master/screenshots/lxde.png?v1" width=700/>
 
-### Ubuntu Flavors
+### 🔸Ubuntu Flavors
 
 Choose your favorite Ubuntu version with [tags](https://hub.docker.com/r/dorowu/ubuntu-desktop-lxde-vnc/tags/)
 
@@ -46,7 +69,7 @@ Choose your favorite Ubuntu version with [tags](https://hub.docker.com/r/dorowu/
 - xenial: Ubuntu 16.04 (deprecated)
 - trusty: Ubuntu 14.04 (deprecated)
 
-## VNC Viewer
+## ✅VNC Viewer
 
 Forward VNC service port 5900 to host by
 
@@ -62,7 +85,8 @@ docker run -p 6080:80 -p 5900:5900 -e VNC_PASSWORD=mypassword -v /dev/shm:/dev/s
 
 A prompt will ask password either in the browser or vnc viewer.
 
-## HTTP Base Authentication
+
+## ✅HTTP Base Authentication
 
 This image provides base access authentication of HTTP via `HTTP_PASSWORD`
 
@@ -70,7 +94,7 @@ This image provides base access authentication of HTTP via `HTTP_PASSWORD`
 docker run -p 6080:80 -e HTTP_PASSWORD=mypassword -v /dev/shm:/dev/shm dorowu/ubuntu-desktop-lxde-vnc
 ```
 
-## SSL
+## ✅SSL
 
 To connect with SSL, generate self signed SSL certificate first if you don't have it
 
@@ -85,7 +109,7 @@ Specify SSL port by `SSL_PORT`, certificate path to `/etc/nginx/ssl`, and forwar
 docker run -p 6081:443 -e SSL_PORT=443 -v ${PWD}/ssl:/etc/nginx/ssl -v /dev/shm:/dev/shm dorowu/ubuntu-desktop-lxde-vnc
 ```
 
-## Screen Resolution
+## ✅Screen Resolution
 
 The Resolution of virtual desktop adapts browser window size when first connecting the server. You may choose a fixed resolution by passing `RESOLUTION` environment variable, for example
 
@@ -93,7 +117,7 @@ The Resolution of virtual desktop adapts browser window size when first connecti
 docker run -p 6080:80 -e RESOLUTION=1920x1080 -v /dev/shm:/dev/shm dorowu/ubuntu-desktop-lxde-vnc
 ```
 
-## Default Desktop User
+## ✅Default Desktop User
 
 The default user is `root`. You may change the user and password respectively by `USER` and `PASSWORD` environment variable, for example,
 
@@ -101,7 +125,7 @@ The default user is `root`. You may change the user and password respectively by
 docker run -p 6080:80 -e USER=doro -e PASSWORD=password -v /dev/shm:/dev/shm dorowu/ubuntu-desktop-lxde-vnc
 ```
 
-## Deploy to a subdirectory (relative url root)
+## ✅Deploy to a subdirectory (relative url root)
 
 You may deploy this application to a subdirectory, for example `/some-prefix/`. You then can access application by `http://127.0.0.1:6080/some-prefix/`. This can be specified using the `RELATIVE_URL_ROOT` configuration option like this
 
@@ -111,7 +135,7 @@ docker run -p 6080:80 -e RELATIVE_URL_ROOT=some-prefix dorowu/ubuntu-desktop-lxd
 
 NOTE: this variable should not have any leading and trailing splash (/)
 
-## Sound (Preview version and Linux only)
+## ✅Sound (Preview version and Linux only)
 
 It only works in Linux. 
 
@@ -136,7 +160,7 @@ Following is the screen capture of these operations. Turn on your sound at the e
 [![demo video](http://img.youtube.com/vi/Kv9FGClP1-k/0.jpg)](http://www.youtube.com/watch?v=Kv9FGClP1-k)
 
 
-## Generate Dockerfile from jinja template
+## ✅Generate Dockerfile from jinja template
 
 WARNING: Deprecated
 
@@ -150,7 +174,7 @@ Dockerfile and configuration can be generated by template.
 
 Dockerfile and configuration are re-generate if they do not exist. Or you may force to re-generate by removing them with the command `make clean`.
 
-## Troubleshooting and FAQ
+## ✅Troubleshooting and FAQ
 
 1. boot2docker connection issue, https://github.com/fcwu/docker-ubuntu-vnc-desktop/issues/2
 2. Multi-language supports, https://github.com/fcwu/docker-ubuntu-vnc-desktop/issues/80
@@ -159,6 +183,6 @@ Dockerfile and configuration are re-generate if they do not exist. Or you may fo
 5. firefox/chrome crash (/dev/shm), https://github.com/fcwu/docker-ubuntu-vnc-desktop/issues/112
 6. resize display size without destroying container, https://github.com/fcwu/docker-ubuntu-vnc-desktop/issues/115#issuecomment-522426037
 
-## License
+## ✅License
 
 See the LICENSE file for details.
