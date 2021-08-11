@@ -46,6 +46,25 @@
 ### 🔸Gallery
 <img src ="https://user-images.githubusercontent.com/65653053/128440040-be99fb68-4b05-47d6-97fa-e4c5c8fdc4d4.png" width=700 />
 
+
+### 🔸확장형 웹 앱 배치
+<img src ="https://user-images.githubusercontent.com/65653053/128981230-3bf7eb31-5956-4367-8ac6-fd841dffb7c0.png" width=700 />
+
+```markdown
+- Docker --> Tool
+- Container 총괄자 --> 쿠버네티스 
+- Containerd : 쿠버네티스 표준 컨테이너 런타임
+- Deployment는 파드와 레플리카셋에 대해 업데이트를 제공
+- 쿠버네티스는 클러스터의 상태를 나타내기 위해 yaml 파일로 제공한다. 
+- 요구되는 필드
+  > apiVersion - 이 오브젝트를 생성하기 위해 사용하고 있는 쿠버네티스 API 버전이 어떤 것인지
+  > kind - 어떤 종류의 오브젝트를 생성하고자 하는지
+  > metadata - 이름 문자열, UID, 그리고 선택적인 네임스페이스를 포함하여 오브젝트를 유일하게 구분지어 줄 데이터
+  > spec - 오브젝트에 대해 어떤 상태를 의도하는지
+
+참고사항: https://kubernetes.io/ko/docs/concepts/overview/working-with-objects/kubernetes-objects/
+```
+
 ## ✅Quick Start
 
 Run the docker container and access with port `6080`
